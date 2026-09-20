@@ -1,0 +1,23 @@
+TRIPGUARD STM32F411CEU6 BLACKPILL - SO DO CHAN
+
+A7670 TXD  -> PA3  (USART2_RX, 9600)
+A7670 RXD  -> PA2  (USART2_TX, 9600)
+
+LD2410 TX  -> PA12 (USART6_RX, 256000)
+LD2410 RX  -> PA11 (tuy chon, firmware khong can)
+
+NEO-M8L TX -> PA10 (USART1_RX, 9600)
+NEO-M8L RX -> PA9  (tuy chon)
+
+SERVO SIG  -> PA6  (TIM3_CH1, PWM 50 Hz)
+JQ8900 IO1 -> PB0  (active LOW)
+JQ8900 BUSY-> PB12
+
+NUT SOS    -> PB1 va GND
+NUT ACK    -> PB10 va GND
+
+ST-LINK SWDIO -> PA13
+ST-LINK SWCLK -> PA14
+
+Tat ca module va tat ca nguon phai noi GND chung.
+A7670 va servo dung nguon ngoai rieng, khong lay dong cong suat tu STM32.

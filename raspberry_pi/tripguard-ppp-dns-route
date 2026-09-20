@@ -1,0 +1,14 @@
+#!/bin/sh
+# Debian pppd exports DNS1/DNS2, but a simultaneous Wi-Fi default route can
+# accidentally send those DNS packets through wlan0.  Pin only the negotiated
+# DNS servers to the PPP interface; the routes disappear with ppp0.
+
+PPP_LINK="${PPP_IFACE:-$1}"
+[ "$PPP_LINK" = "ppp0" ] || exit 0
+
+for DNS_SERVER in "$DNS1" "$DNS2"; do
+    [ -n "$DNS_SERVER" ] || continue
+    /sbin/ip route replace "$DNS_SERVER" dev "$PPP_LINK"
+done
+
+exit 0

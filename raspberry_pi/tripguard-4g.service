@@ -1,0 +1,14 @@
+[Unit]
+Description=TripGuard SIMCom 4G PPP link on UART3
+After=dev-ttyAMA3.device
+Wants=dev-ttyAMA3.device
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/python3 /opt/tripguard/tripguard_modem_prepare.py --port /dev/ttyAMA3 --target-baud 115200
+ExecStart=/usr/sbin/pppd call tripguard-4g nodetach
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

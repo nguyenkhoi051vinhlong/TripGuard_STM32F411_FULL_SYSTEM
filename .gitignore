@@ -1,0 +1,57 @@
+# =========================
+# STM32CubeIDE build output
+# =========================
+Debug/
+Release/
+build/
+
+*.o
+*.obj
+*.d
+*.su
+*.elf
+*.hex
+*.bin
+*.map
+*.list
+*.lst
+
+# =========================
+# Temporary / backup files
+# =========================
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+Backups/
+
+# =========================
+# Windows / OS files
+# =========================
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# =========================
+# Local Codex workspace
+# =========================
+.codex-config/
+.codex-workspace/
+
+# =========================
+# Python caches
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# =========================
+# Secrets - nếu bạn tạo
+# =========================
+secrets.h
+**/secrets.h
+.env
+*.env

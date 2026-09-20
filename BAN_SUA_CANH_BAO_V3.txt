@@ -1,0 +1,51 @@
+TRIPGUARD - BAN SUA CANH BAO V3
+================================
+
+Da sua cac loi khi test thuc te:
+
+1. Radar co nguoi ngay sau luc khoi dong van duoc gui canh bao sau warm-up.
+2. Neu mat ket noi radar, khong dung trang thai phat hien cu de quay servo.
+3. Nut SOS PB1 va nut ACK PB10 co ca EXTI va polling du phong.
+4. SMS dung GSM 7-bit, noi dung khong dau va so quoc te +84838740019.
+5. Cuoc goi chi duoc tinh thanh cong sau "VOICE CALL: BEGIN".
+6. Dung AT+CHUP de ket thuc cuoc goi, khong phu thuoc AT+CVHU.
+
+LIVE EXPRESSIONS CAN THEM:
+
+tripguard_radar_alert_armed
+tripguard_radar_alert_count
+tripguard_sos_button_raw
+tripguard_sos_button_latched
+tripguard_ack_button_raw
+tripguard_sos_count
+tripguard_alert_active
+tripguard_alert_phase
+tripguard_alert_last_result
+tripguard_alert_last_success
+tripguard_sms_sent_count
+tripguard_call_started_count
+tripguard_alert_error_count
+(char *)tripguard_alert_last_response
+
+TEST NUT:
+- Khong nhan: tripguard_sos_button_raw = 0.
+- Nhan PB1 xuong GND: tripguard_sos_button_raw = 1.
+- Giu khoang 0.2 giay: tripguard_sos_count tang 1.
+
+TEST RADAR:
+- Sau khi cap nguon cho radar, cho 10 giay warm-up.
+- radar_online = 1, radar_alert_armed = 1.
+- Co nguoi lien tuc 2 giay: radar_alert_count tang, bat dau gui SMS.
+
+TEST SOS TU THINGSBOARD:
+- remote_command_count tang.
+- alert_active = 2 trong luc xu ly.
+- Gui SMS thanh cong: sms_sent_count tang.
+- Bat dau voice call thuc: call_started_count tang.
+- Sau khi xong: alert_active = 0, alert_last_success = 1.
+
+Neu alert_error_count tang, xem tripguard_alert_last_response. Cac loi thuong gap:
+- +CMS ERROR: 330: chua co SMSC.
+- +CMS ERROR: 331: khong co dich vu mang.
+- +CMS ERROR: 332: mang SMS timeout.
+- NO CARRIER: mang/SIM/module khong khoi tao duoc voice call.

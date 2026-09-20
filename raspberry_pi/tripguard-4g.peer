@@ -1,0 +1,15 @@
+/dev/ttyAMA3
+115200
+connect "/usr/sbin/chat -v -f /etc/chatscripts/tripguard-4g"
+noauth
+modem
+nocrtscts
+local
+noipdefault
+defaultroute
+usepeerdns
+novj
+nodeflate
+noipv6
+lcp-echo-interval 20
+lcp-echo-failure 3

@@ -1,0 +1,29 @@
+[Unit]
+Description=TripGuard CSI camera AI person detection
+Requires=tripguard-uart.service
+After=tripguard-uart.service multi-user.target
+PartOf=tripguard-uart.service
+
+[Service]
+Type=simple
+User=kt
+Group=kt
+SupplementaryGroups=video
+WorkingDirectory=/home/kt/TripGuardAI
+Environment=PYTHONUNBUFFERED=1
+Environment=TRIPGUARD_HEADLESS=1
+Environment=TRIPGUARD_AUTO_START=1
+Environment=TRIPGUARD_EXIT_AFTER_SCAN=1
+Environment=TRIPGUARD_SCAN_SESSION_SECONDS=900
+Environment=TRIPGUARD_SCAN_SESSION_ID=0
+EnvironmentFile=-/run/tripguard-uart/camera-session.env
+Environment=TRIPGUARD_CAMERA_MAX_WARMUP_SECONDS=12
+Environment=TRIPGUARD_CAMERA_FPS=8
+Environment=TRIPGUARD_PERF_WINDOW=300
+ExecStart=/home/kt/TripGuardAI/venv/bin/python /home/kt/TripGuardAI/tripguard_camera_endtrip.py
+Restart=on-failure
+RestartSec=20
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

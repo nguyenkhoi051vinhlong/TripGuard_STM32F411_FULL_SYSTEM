@@ -1,0 +1,44 @@
+TRIPGUARD - BAN SUA SMS, GOI DIEN VA NUT SOS V4
+================================================
+
+Da dong bo chuoi lenh voi ban danang(4).zip da test hoat dong:
+
+1. SMS dung UCS2:
+   AT+CMGF=1
+   AT+CSCS="UCS2"
+   AT+CSMP=17,167,0,8
+   AT+CMGS voi so dien thoai UCS2
+   Gui noi dung UCS2 va Ctrl+Z
+
+2. Goi dien dung:
+   ATD0838740019;
+   Chap nhan phan hoi OK cua modem, khong cho chuoi VOICE CALL: BEGIN.
+   Ket thuc cuoc goi bang ATH.
+
+3. Nut SOS PB1:
+   Vua keo PB1 xuong GND la phat loa va xep SMS/goi ngay.
+   Khong con cho debounce 80 ms.
+   Latch van dam bao mot lan nhan chi kich mot lan.
+
+Hai file chinh da sua:
+   Core/Inc/tripguard_config.h
+   Core/Src/freertos.c
+
+Sau khi copy file: Project > Clean, Build, nap lai firmware.
+
+LIVE EXPRESSIONS DE TEST:
+   tripguard_sos_button_raw
+   tripguard_sos_count
+   tripguard_alert_active
+   tripguard_alert_phase
+   tripguard_sms_sent_count
+   tripguard_call_started_count
+   tripguard_alert_error_count
+   (char *)tripguard_alert_last_response
+
+Ket qua mong doi khi nhan PB1:
+   sos_button_raw = 1 ngay khi nhan
+   sos_count tang 1
+   loa phat ngay
+   sms_sent_count tang 1 sau khi modem tra +CMGS
+   call_started_count tang 1 sau khi ATD tra OK

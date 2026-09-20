@@ -1,0 +1,24 @@
+[Unit]
+Description=TripGuard Raspberry Pi to STM32 UART link
+Wants=network-online.target
+After=multi-user.target network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=dialout
+UMask=0007
+RuntimeDirectory=tripguard-uart
+RuntimeDirectoryMode=0770
+StateDirectory=tripguard
+StateDirectoryMode=0750
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/etc/tripguard/gateway.env
+ExecStart=/usr/bin/python3 /opt/tripguard/tripguard_uart.py daemon --port /dev/serial0 --baud 115200
+Restart=always
+RestartSec=2
+TimeoutStopSec=5
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
