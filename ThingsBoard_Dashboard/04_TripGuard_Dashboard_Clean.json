@@ -1,0 +1,1595 @@
+{
+  "title": "TripGuard - Giám sát toàn bộ",
+  "image": null,
+  "mobileHide": false,
+  "mobileOrder": null,
+  "configuration": {
+    "description": "Giám sát, điều khiển RPC một chiều và theo dõi vị trí GPS trực tiếp của tripguard-01.",
+    "widgets": {
+      "13c61166-7e5d-44c2-9c5d-1d00a0010001": {
+        "type": "latest",
+        "sizeX": 12,
+        "sizeY": 8,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "person_detected",
+                  "type": "timeseries",
+                  "label": "person_status",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.521246180119016,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'PHÁT HIỆN NGƯỜI'; } return 'KHÔNG CÓ NGƯỜI';"
+                },
+                {
+                  "name": "radar_online",
+                  "type": "timeseries",
+                  "label": "radar_online_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.4098895477399459,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'ONLINE'; } return 'OFFLINE';"
+                },
+                {
+                  "name": "radar_distance_cm",
+                  "type": "timeseries",
+                  "label": "distance_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.31986579135293225,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const n=Number(value); return Number.isFinite(n) ? n.toFixed(0) + ' cm' : '--';"
+                },
+                {
+                  "name": "radar_state",
+                  "type": "timeseries",
+                  "label": "radar_state",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.7832956246751297,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "radar_alert_armed",
+                  "type": "timeseries",
+                  "label": "radar_armed",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.18349429574574183,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'CÓ'; } return 'KHÔNG';"
+                },
+                {
+                  "name": "radar_alert_count",
+                  "type": "timeseries",
+                  "label": "radar_alert_count",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.551153709834462,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "radar_valid_frames",
+                  "type": "timeseries",
+                  "label": "radar_valid",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.33180975497857557,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "radar_invalid_frames",
+                  "type": "timeseries",
+                  "label": "radar_invalid",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8258276034613331,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "radar_uart_errors",
+                  "type": "timeseries",
+                  "label": "radar_uart_errors",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.846901938011518,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "radar_alert_enabled",
+                  "type": "timeseries",
+                  "label": "radar_alert_enabled_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.6405665565448324,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'BẬT'; } return 'TẮT';"
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 0,
+                "endTimeMs": 0
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "0px",
+          "settings": {
+            "cardHtml": "<div class=\"tg-card\"><div class=\"tg-head tg-radar\"><span>📡 RADAR & PHÁT HIỆN NGƯỜI</span><span class=\"tg-pill\">${person_status:--}</span></div><div class=\"tg-grid\"><div class=\"tg-item\"><div class=\"tg-label\">Radar</div><div class=\"tg-value\">${radar_online_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Khoảng cách</div><div class=\"tg-value\">${distance_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Sẵn sàng cảnh báo</div><div class=\"tg-value\">${radar_armed:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Cho phép cảnh báo</div><div class=\"tg-value\">${radar_alert_enabled_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Tổng cảnh báo</div><div class=\"tg-value\">${radar_alert_count:0}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Lỗi UART</div><div class=\"tg-value\">${radar_uart_errors:0}</div></div></div></div>",
+            "cardCss": "\n.tg-card{height:100%;box-sizing:border-box;background:#fff;border:1px solid #e4eaf1;border-radius:10px;overflow:auto;font-family:Roboto,Arial,sans-serif;color:#172033;box-shadow:0 1px 3px rgba(16,24,40,.08)}\n.tg-head{position:sticky;top:0;z-index:2;padding:10px 14px;color:#fff;font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:10px}\n.tg-radar{background:linear-gradient(135deg,#0d47a1,#1976d2)}\n.tg-sos{background:linear-gradient(135deg,#b71c1c,#e53935)}\n.tg-cell{background:linear-gradient(135deg,#4a148c,#7b1fa2)}\n.tg-gps{background:linear-gradient(135deg,#1b5e20,#388e3c)}\n.tg-sys{background:linear-gradient(135deg,#263238,#455a64)}\n.tg-pill{padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.20);font-size:11px;font-weight:700;white-space:nowrap}\n.tg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px 12px 8px}\n.tg-item{padding:7px 6px;border-bottom:1px solid #eef2f6;min-width:0}\n.tg-label{font-size:11px;line-height:1.25;color:#667085;margin-bottom:3px}\n.tg-value{font-size:14px;line-height:1.25;font-weight:700;word-break:break-word;color:#101828}\n.tg-wide{grid-column:1/-1}\n.tg-note{grid-column:1/-1;margin:7px 6px 2px;padding:7px 9px;background:#fff8e1;border-left:3px solid #ffb300;border-radius:4px;font-size:11px;color:#5d4300}\n@media(max-width:700px){.tg-grid{grid-template-columns:1fr}.tg-wide{grid-column:auto}.tg-head{font-size:14px;padding:9px 11px}.tg-value{font-size:13px}}\n"
+          },
+          "title": "📡 RADAR & PHÁT HIỆN NGƯỜI",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 500
+          },
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "showTitleIcon": false,
+          "titleIcon": null,
+          "iconColor": "rgba(0,0,0,0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "enableDataExport": false,
+          "displayTimewindow": false
+        },
+        "row": 0,
+        "col": 0,
+        "id": "13c61166-7e5d-44c2-9c5d-1d00a0010001",
+        "typeFullFqn": "system.cards.html_value_card"
+      },
+      "13c61166-7e5d-44c2-9c5d-1d00a0010002": {
+        "type": "latest",
+        "sizeX": 12,
+        "sizeY": 8,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "sos_button_latched",
+                  "type": "timeseries",
+                  "label": "sos_button",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8218033135751098,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'CÓ'; } return 'KHÔNG';"
+                },
+                {
+                  "name": "sos_pending",
+                  "type": "timeseries",
+                  "label": "sos_pending_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8887294424582971,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'CÓ'; } return 'KHÔNG';"
+                },
+                {
+                  "name": "sos_count",
+                  "type": "timeseries",
+                  "label": "sos_count",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.5950704411168883,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "audio_busy_raw",
+                  "type": "timeseries",
+                  "label": "speaker_status",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.9444834821037305,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (Number(value) === 0) { return 'LOW (BUSY=0)'; } return 'HIGH (BUSY=1)';"
+                },
+                {
+                  "name": "audio_track",
+                  "type": "timeseries",
+                  "label": "audio_track_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8670607750513645,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "switch (Number(value)) { case 1: return 'CẢNH BÁO RADAR'; case 2: return 'CẢNH BÁO SOS'; default: return 'KHÔNG PHÁT'; }"
+                },
+                {
+                  "name": "audio_track",
+                  "type": "timeseries",
+                  "label": "audio_track",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.23204601898273258,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "audio_error_count",
+                  "type": "timeseries",
+                  "label": "audio_errors",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.514007376982365,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 0,
+                "endTimeMs": 0
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "0px",
+          "settings": {
+            "cardHtml": "<div class=\"tg-card\"><div class=\"tg-head tg-sos\"><span>🆘 SOS & LOA</span><span class=\"tg-pill\">${sos_pending_text:--}</span></div><div class=\"tg-grid\"><div class=\"tg-item\"><div class=\"tg-label\">Nút SOS</div><div class=\"tg-value\">${sos_button:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Đang chờ xử lý</div><div class=\"tg-value\">${sos_pending_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Tổng lần nhấn SOS</div><div class=\"tg-value\">${sos_count:0}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Loa</div><div class=\"tg-value\">${speaker_status:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Âm thanh gần nhất</div><div class=\"tg-value\">${audio_track_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Lỗi module loa</div><div class=\"tg-value\">${audio_errors:0}</div></div></div></div>",
+            "cardCss": "\n.tg-card{height:100%;box-sizing:border-box;background:#fff;border:1px solid #e4eaf1;border-radius:10px;overflow:auto;font-family:Roboto,Arial,sans-serif;color:#172033;box-shadow:0 1px 3px rgba(16,24,40,.08)}\n.tg-head{position:sticky;top:0;z-index:2;padding:10px 14px;color:#fff;font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:10px}\n.tg-radar{background:linear-gradient(135deg,#0d47a1,#1976d2)}\n.tg-sos{background:linear-gradient(135deg,#b71c1c,#e53935)}\n.tg-cell{background:linear-gradient(135deg,#4a148c,#7b1fa2)}\n.tg-gps{background:linear-gradient(135deg,#1b5e20,#388e3c)}\n.tg-sys{background:linear-gradient(135deg,#263238,#455a64)}\n.tg-pill{padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.20);font-size:11px;font-weight:700;white-space:nowrap}\n.tg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px 12px 8px}\n.tg-item{padding:7px 6px;border-bottom:1px solid #eef2f6;min-width:0}\n.tg-label{font-size:11px;line-height:1.25;color:#667085;margin-bottom:3px}\n.tg-value{font-size:14px;line-height:1.25;font-weight:700;word-break:break-word;color:#101828}\n.tg-wide{grid-column:1/-1}\n.tg-note{grid-column:1/-1;margin:7px 6px 2px;padding:7px 9px;background:#fff8e1;border-left:3px solid #ffb300;border-radius:4px;font-size:11px;color:#5d4300}\n@media(max-width:700px){.tg-grid{grid-template-columns:1fr}.tg-wide{grid-column:auto}.tg-head{font-size:14px;padding:9px 11px}.tg-value{font-size:13px}}\n"
+          },
+          "title": "🆘 NÚT NHẤN & LOA",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 500
+          },
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "showTitleIcon": false,
+          "titleIcon": null,
+          "iconColor": "rgba(0,0,0,0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "enableDataExport": false,
+          "displayTimewindow": false
+        },
+        "row": 0,
+        "col": 12,
+        "id": "13c61166-7e5d-44c2-9c5d-1d00a0010002",
+        "typeFullFqn": "system.cards.html_value_card"
+      },
+      "13c61166-7e5d-44c2-9c5d-1d00a0010003": {
+        "type": "latest",
+        "sizeX": 12,
+        "sizeY": 12,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "modem_state",
+                  "type": "timeseries",
+                  "label": "modem_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.9273546140573364,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "switch (Number(value)) { case 0: return 'TẮT'; case 1: return 'ĐANG KHỞI ĐỘNG'; case 2: return 'ĐỢI AT'; case 3: return 'ĐỢI SIM'; case 4: return 'ĐỢI MẠNG'; case 5: return 'ĐỢI PDP'; case 6: return 'SẴN SÀNG'; case 7: return 'LỖI'; default: return String(value); }"
+                },
+                {
+                  "name": "network_registered",
+                  "type": "timeseries",
+                  "label": "network_status",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.47482670447227127,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'ONLINE'; } return 'OFFLINE';"
+                },
+                {
+                  "name": "cereg_status",
+                  "type": "timeseries",
+                  "label": "cereg_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.42493247619352637,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "switch (Number(value)) { case 0: return 'CHƯA ĐĂNG KÝ'; case 1: return 'MẠNG NHÀ'; case 2: return 'ĐANG TÌM MẠNG'; case 3: return 'BỊ TỪ CHỐI'; case 4: return 'KHÔNG RÕ'; case 5: return 'ROAMING'; default: return String(value); }"
+                },
+                {
+                  "name": "pdp_active",
+                  "type": "timeseries",
+                  "label": "pdp_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.5304245439175208,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'ONLINE'; } return 'OFFLINE';"
+                },
+                {
+                  "name": "alert_kind",
+                  "type": "timeseries",
+                  "label": "active_alert_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.016358844560916852,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "switch (Number(value)) { case 1: return 'RADAR - GỬI SMS'; case 2: return 'SOS - SMS + GỌI'; default: return 'KHÔNG CÓ'; }"
+                },
+                {
+                  "name": "alert_phase",
+                  "type": "timeseries",
+                  "label": "alert_phase_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8614867178036272,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const p=['IDLE','ĐỢI MẠNG','XẢ UART','BẬT SMS','ĐỢI SMS','BẬT CHARSET','ĐỢI CHARSET','BẬT DCS','ĐỢI DCS','YÊU CẦU NHẬP SMS','ĐỢI DẤU >','GỬI NỘI DUNG SMS','ĐỢI SMS XONG','BẮT ĐẦU GỌI','ĐỢI GỌI','ĐANG GỌI','BẮT ĐẦU CÚP MÁY','ĐỢI CÚP MÁY','KHÔI PHỤC CHARSET','ĐỢI KHÔI PHỤC']; return p[Number(value)] || String(value);"
+                },
+                {
+                  "name": "alert_last_kind",
+                  "type": "timeseries",
+                  "label": "last_alert_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.7893427697276904,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "switch (Number(value)) { case 1: return 'RADAR - GỬI SMS'; case 2: return 'SOS - SMS + GỌI'; default: return 'KHÔNG CÓ'; }"
+                },
+                {
+                  "name": "alert_last_kind",
+                  "type": "timeseries",
+                  "label": "last_sms_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.9098219864284125,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "switch (Number(value)) { case 1: return 'PHÁT HIỆN CÓ NGƯỜI'; case 2: return 'CỨU TUI'; default: return 'CHƯA GỬI'; }"
+                },
+                {
+                  "name": "alert_last_kind",
+                  "type": "timeseries",
+                  "label": "last_call_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.4911629405187492,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "return Number(value) === 2 ? '+84 838 740 019' : 'KHÔNG GỌI';"
+                },
+                {
+                  "name": "alert_last_success",
+                  "type": "timeseries",
+                  "label": "last_alert_result",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.06976729842929064,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') return 'THÀNH CÔNG'; return 'CHƯA THÀNH CÔNG';"
+                },
+                {
+                  "name": "sms_sent_count",
+                  "type": "timeseries",
+                  "label": "sms_count",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.898372714224767,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "call_started_count",
+                  "type": "timeseries",
+                  "label": "call_count",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8710422715437175,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "alert_error_count",
+                  "type": "timeseries",
+                  "label": "alert_errors",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.4295331644582231,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 0,
+                "endTimeMs": 0
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "0px",
+          "settings": {
+            "cardHtml": "<div class=\"tg-card\"><div class=\"tg-head tg-cell\"><span>📱 SIM, SMS & CUỘC GỌI</span><span class=\"tg-pill\">${network_status:--}</span></div><div class=\"tg-grid\"><div class=\"tg-item\"><div class=\"tg-label\">Modem A7670</div><div class=\"tg-value\">${modem_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">SIM / mạng</div><div class=\"tg-value\">${network_status:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">CEREG</div><div class=\"tg-value\">${cereg_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Dữ liệu di động</div><div class=\"tg-value\">${pdp_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Cảnh báo đang xử lý</div><div class=\"tg-value\">${active_alert_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Giai đoạn</div><div class=\"tg-value\">${alert_phase_text:--}</div></div><div class=\"tg-item tg-wide\"><div class=\"tg-label\">SMS gần nhất</div><div class=\"tg-value\">${last_sms_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Kết quả gần nhất</div><div class=\"tg-value\">${last_alert_result:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Lỗi cảnh báo</div><div class=\"tg-value\">${alert_errors:0}</div></div></div></div>",
+            "cardCss": "\n.tg-card{height:100%;box-sizing:border-box;background:#fff;border:1px solid #e4eaf1;border-radius:10px;overflow:auto;font-family:Roboto,Arial,sans-serif;color:#172033;box-shadow:0 1px 3px rgba(16,24,40,.08)}\n.tg-head{position:sticky;top:0;z-index:2;padding:10px 14px;color:#fff;font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:10px}\n.tg-radar{background:linear-gradient(135deg,#0d47a1,#1976d2)}\n.tg-sos{background:linear-gradient(135deg,#b71c1c,#e53935)}\n.tg-cell{background:linear-gradient(135deg,#4a148c,#7b1fa2)}\n.tg-gps{background:linear-gradient(135deg,#1b5e20,#388e3c)}\n.tg-sys{background:linear-gradient(135deg,#263238,#455a64)}\n.tg-pill{padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.20);font-size:11px;font-weight:700;white-space:nowrap}\n.tg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px 12px 8px}\n.tg-item{padding:7px 6px;border-bottom:1px solid #eef2f6;min-width:0}\n.tg-label{font-size:11px;line-height:1.25;color:#667085;margin-bottom:3px}\n.tg-value{font-size:14px;line-height:1.25;font-weight:700;word-break:break-word;color:#101828}\n.tg-wide{grid-column:1/-1}\n.tg-note{grid-column:1/-1;margin:7px 6px 2px;padding:7px 9px;background:#fff8e1;border-left:3px solid #ffb300;border-radius:4px;font-size:11px;color:#5d4300}\n@media(max-width:700px){.tg-grid{grid-template-columns:1fr}.tg-wide{grid-column:auto}.tg-head{font-size:14px;padding:9px 11px}.tg-value{font-size:13px}}\n"
+          },
+          "title": "📱 SIM, SMS & CUỘC GỌI",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 500
+          },
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "showTitleIcon": false,
+          "titleIcon": null,
+          "iconColor": "rgba(0,0,0,0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "enableDataExport": false,
+          "displayTimewindow": false
+        },
+        "row": 8,
+        "col": 0,
+        "id": "13c61166-7e5d-44c2-9c5d-1d00a0010003",
+        "typeFullFqn": "system.cards.html_value_card"
+      },
+      "13c61166-7e5d-44c2-9c5d-1d00a0010004": {
+        "type": "latest",
+        "sizeX": 12,
+        "sizeY": 12,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "gps_state",
+                  "type": "timeseries",
+                  "label": "gps_state_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.7630576418571701,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "gps_link_alive",
+                  "type": "timeseries",
+                  "label": "gps_link_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.6711585547073408,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'ONLINE'; } return 'OFFLINE';"
+                },
+                {
+                  "name": "position_available",
+                  "type": "timeseries",
+                  "label": "position_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.7692588178481674,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'CÓ'; } return 'KHÔNG';"
+                },
+                {
+                  "name": "position_current",
+                  "type": "timeseries",
+                  "label": "position_current_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.6647568666714921,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'CÓ'; } return 'KHÔNG';"
+                },
+                {
+                  "name": "latitude",
+                  "type": "timeseries",
+                  "label": "latitude_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8542171364795972,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const n=Number(value); return Number.isFinite(n) ? n.toFixed(6) : '--';"
+                },
+                {
+                  "name": "longitude",
+                  "type": "timeseries",
+                  "label": "longitude_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8810033281500843,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const n=Number(value); return Number.isFinite(n) ? n.toFixed(6) : '--';"
+                },
+                {
+                  "name": "satellites",
+                  "type": "timeseries",
+                  "label": "satellites",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.5305230305326674,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "hdop",
+                  "type": "timeseries",
+                  "label": "hdop_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.23721162736343526,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const n=Number(value); return Number.isFinite(n) ? n.toFixed(2) : '--';"
+                },
+                {
+                  "name": "speed_kmh",
+                  "type": "timeseries",
+                  "label": "speed_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.656928071413065,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const n=Number(value); return Number.isFinite(n) ? n.toFixed(1) + ' km/h' : '--';"
+                },
+                {
+                  "name": "altitude",
+                  "type": "timeseries",
+                  "label": "altitude_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.2646808434942852,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const n=Number(value); return Number.isFinite(n) ? n.toFixed(1) + ' m' : '--';"
+                },
+                {
+                  "name": "location_age_s",
+                  "type": "timeseries",
+                  "label": "location_age_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.3591929302093252,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const n=Number(value); return Number.isFinite(n) ? n.toFixed(0) + ' s' : '--';"
+                },
+                {
+                  "name": "driving_state",
+                  "type": "timeseries",
+                  "label": "driving_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.1642871136877676,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "switch (Number(value)) { case 1: return 'ĐANG DỪNG'; case 2: return 'ĐANG CHẠY'; default: return 'CHƯA XÁC ĐỊNH'; }"
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 0,
+                "endTimeMs": 0
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "0px",
+          "settings": {
+            "cardHtml": "<div class=\"tg-card\"><div class=\"tg-head tg-gps\"><span>🛰️ GPS & DI CHUYỂN</span><span class=\"tg-pill\">${gps_state_text:--}</span></div><div class=\"tg-grid\"><div class=\"tg-item\"><div class=\"tg-label\">GPS</div><div class=\"tg-value\">${gps_state_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Liên kết GPS</div><div class=\"tg-value\">${gps_link_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Tọa độ còn mới</div><div class=\"tg-value\">${position_current_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Số vệ tinh</div><div class=\"tg-value\">${satellites:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Vĩ độ</div><div class=\"tg-value\">${latitude_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Kinh độ</div><div class=\"tg-value\">${longitude_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Tốc độ</div><div class=\"tg-value\">${speed_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Trạng thái xe</div><div class=\"tg-value\">${driving_text:--}</div></div></div></div>",
+            "cardCss": "\n.tg-card{height:100%;box-sizing:border-box;background:#fff;border:1px solid #e4eaf1;border-radius:10px;overflow:auto;font-family:Roboto,Arial,sans-serif;color:#172033;box-shadow:0 1px 3px rgba(16,24,40,.08)}\n.tg-head{position:sticky;top:0;z-index:2;padding:10px 14px;color:#fff;font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:10px}\n.tg-radar{background:linear-gradient(135deg,#0d47a1,#1976d2)}\n.tg-sos{background:linear-gradient(135deg,#b71c1c,#e53935)}\n.tg-cell{background:linear-gradient(135deg,#4a148c,#7b1fa2)}\n.tg-gps{background:linear-gradient(135deg,#1b5e20,#388e3c)}\n.tg-sys{background:linear-gradient(135deg,#263238,#455a64)}\n.tg-pill{padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.20);font-size:11px;font-weight:700;white-space:nowrap}\n.tg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px 12px 8px}\n.tg-item{padding:7px 6px;border-bottom:1px solid #eef2f6;min-width:0}\n.tg-label{font-size:11px;line-height:1.25;color:#667085;margin-bottom:3px}\n.tg-value{font-size:14px;line-height:1.25;font-weight:700;word-break:break-word;color:#101828}\n.tg-wide{grid-column:1/-1}\n.tg-note{grid-column:1/-1;margin:7px 6px 2px;padding:7px 9px;background:#fff8e1;border-left:3px solid #ffb300;border-radius:4px;font-size:11px;color:#5d4300}\n@media(max-width:700px){.tg-grid{grid-template-columns:1fr}.tg-wide{grid-column:auto}.tg-head{font-size:14px;padding:9px 11px}.tg-value{font-size:13px}}\n"
+          },
+          "title": "🛰️ GPS & DI CHUYỂN",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 500
+          },
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "showTitleIcon": false,
+          "titleIcon": null,
+          "iconColor": "rgba(0,0,0,0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "enableDataExport": false,
+          "displayTimewindow": false
+        },
+        "row": 8,
+        "col": 12,
+        "id": "13c61166-7e5d-44c2-9c5d-1d00a0010004",
+        "typeFullFqn": "system.cards.html_value_card"
+      },
+      "13c61166-7e5d-44c2-9c5d-1d00a0010005": {
+        "type": "latest",
+        "sizeX": 24,
+        "sizeY": 10,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "mqtt_connected",
+                  "type": "timeseries",
+                  "label": "tb_status",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.6709258380494295,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'ONLINE'; } return 'OFFLINE';"
+                },
+                {
+                  "name": "mqtt_state",
+                  "type": "timeseries",
+                  "label": "mqtt_state_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.41235243168352154,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "switch (Number(value)) { case 0: return 'IDLE'; case 1: return 'KHỞI ĐỘNG MQTT'; case 2: return 'TẠO MQTT CLIENT'; case 3: return 'ĐANG KẾT NỐI'; case 4: return 'ĐÃ KẾT NỐI'; case 5: return 'ĐANG GỬI'; case 6: return 'CHỜ THỬ LẠI'; case 7: return 'ĐANG ĐĂNG KÝ RPC'; case 8: return 'ĐANG DỪNG'; default: return String(value); }"
+                },
+                {
+                  "name": "mqtt_publish_count",
+                  "type": "timeseries",
+                  "label": "publish_count",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.7519173632389266,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "mqtt_error_count",
+                  "type": "timeseries",
+                  "label": "mqtt_errors",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8179294432370904,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "event",
+                  "type": "timeseries",
+                  "label": "last_event",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.5202440713488087,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "event_code",
+                  "type": "timeseries",
+                  "label": "event_code",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.3481240334584169,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "telemetry_seq",
+                  "type": "timeseries",
+                  "label": "telemetry_seq",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.022678953592223272,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "telemetry_dropped_count",
+                  "type": "timeseries",
+                  "label": "telemetry_dropped",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.5452753115821908,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "modem_ready",
+                  "type": "timeseries",
+                  "label": "modem_ready_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.5519766821953388,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "if (value === true || value === 1 || value === 'true' || value === '1') { return 'CÓ'; } return 'KHÔNG';"
+                },
+                {
+                  "name": "uptime_s",
+                  "type": "timeseries",
+                  "label": "uptime_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.6311202828227043,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const s=Number(value); if (!Number.isFinite(s)) return '--'; const d=Math.floor(s/86400), h=Math.floor((s%86400)/3600), m=Math.floor((s%3600)/60); return (d?d+' ngày ':'')+h+' giờ '+m+' phút';"
+                },
+                {
+                  "name": "last_rpc_method",
+                  "type": "timeseries",
+                  "label": "last_rpc_method",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.9581853177139523,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "last_rpc_result",
+                  "type": "timeseries",
+                  "label": "last_rpc_result",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.011420408430813711,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "remote_command_count",
+                  "type": "timeseries",
+                  "label": "remote_command_count",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.9478638195444054,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "remote_rejected_count",
+                  "type": "timeseries",
+                  "label": "remote_rejected_count",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.4980235766657276,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "rpc_poll_error_count",
+                  "type": "timeseries",
+                  "label": "rpc_poll_error_count",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.39866482272906145,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "telemetry_period_ms",
+                  "type": "timeseries",
+                  "label": "telemetry_period_text",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.7321280995896527,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "const n=Number(value); return Number.isFinite(n) ? (n/1000).toFixed(n%1000?1:0)+' giây' : '--';"
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 0,
+                "endTimeMs": 0
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "0px",
+          "settings": {
+            "cardHtml": "<div class=\"tg-card\"><div class=\"tg-head tg-sys\"><span>☁️ KẾT NỐI & HỆ THỐNG</span><span class=\"tg-pill\">${tb_status:--}</span></div><div class=\"tg-grid\"><div class=\"tg-item\"><div class=\"tg-label\">ThingsBoard</div><div class=\"tg-value\">${tb_status:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">MQTT</div><div class=\"tg-value\">${mqtt_state_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Gói gửi thành công</div><div class=\"tg-value\">${publish_count:0}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Lỗi truyền dữ liệu</div><div class=\"tg-value\">${mqtt_errors:0}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Lệnh app gần nhất</div><div class=\"tg-value\">${last_rpc_method:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Kết quả lệnh</div><div class=\"tg-value\">${last_rpc_result:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Chu kỳ telemetry</div><div class=\"tg-value\">${telemetry_period_text:--}</div></div><div class=\"tg-item\"><div class=\"tg-label\">Thời gian chạy</div><div class=\"tg-value\">${uptime_text:--}</div></div></div></div>",
+            "cardCss": "\n.tg-card{height:100%;box-sizing:border-box;background:#fff;border:1px solid #e4eaf1;border-radius:10px;overflow:auto;font-family:Roboto,Arial,sans-serif;color:#172033;box-shadow:0 1px 3px rgba(16,24,40,.08)}\n.tg-head{position:sticky;top:0;z-index:2;padding:10px 14px;color:#fff;font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:10px}\n.tg-radar{background:linear-gradient(135deg,#0d47a1,#1976d2)}\n.tg-sos{background:linear-gradient(135deg,#b71c1c,#e53935)}\n.tg-cell{background:linear-gradient(135deg,#4a148c,#7b1fa2)}\n.tg-gps{background:linear-gradient(135deg,#1b5e20,#388e3c)}\n.tg-sys{background:linear-gradient(135deg,#263238,#455a64)}\n.tg-pill{padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.20);font-size:11px;font-weight:700;white-space:nowrap}\n.tg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px 12px 8px}\n.tg-item{padding:7px 6px;border-bottom:1px solid #eef2f6;min-width:0}\n.tg-label{font-size:11px;line-height:1.25;color:#667085;margin-bottom:3px}\n.tg-value{font-size:14px;line-height:1.25;font-weight:700;word-break:break-word;color:#101828}\n.tg-wide{grid-column:1/-1}\n.tg-note{grid-column:1/-1;margin:7px 6px 2px;padding:7px 9px;background:#fff8e1;border-left:3px solid #ffb300;border-radius:4px;font-size:11px;color:#5d4300}\n@media(max-width:700px){.tg-grid{grid-template-columns:1fr}.tg-wide{grid-column:auto}.tg-head{font-size:14px;padding:9px 11px}.tg-value{font-size:13px}}\n"
+          },
+          "title": "☁️ THINGSBOARD & HỆ THỐNG",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 500
+          },
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "showTitleIcon": false,
+          "titleIcon": null,
+          "iconColor": "rgba(0,0,0,0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "enableDataExport": false,
+          "displayTimewindow": false
+        },
+        "row": 20,
+        "col": 0,
+        "id": "13c61166-7e5d-44c2-9c5d-1d00a0010005",
+        "typeFullFqn": "system.cards.html_value_card"
+      },
+      "13c61166-7e5d-44c2-9c5d-1d00a0010006": {
+        "type": "timeseries",
+        "sizeX": 24,
+        "sizeY": 12,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "event",
+                  "type": "timeseries",
+                  "label": "Sự kiện",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.5617010160730465,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "radar_distance_cm",
+                  "type": "timeseries",
+                  "label": "Khoảng cách radar",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.6674427411183647,
+                  "units": "cm",
+                  "decimals": 0,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "person_detected",
+                  "type": "timeseries",
+                  "label": "Có người",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8147566269723613,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "speed_kmh",
+                  "type": "timeseries",
+                  "label": "Tốc độ",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.0959228737051433,
+                  "units": "km/h",
+                  "decimals": 1,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "sos_button_latched",
+                  "type": "timeseries",
+                  "label": "Nút SOS",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.8943566293045214,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "audio_track",
+                  "type": "timeseries",
+                  "label": "Track loa",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.4567862193023837,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "sms_sent_count",
+                  "type": "timeseries",
+                  "label": "SMS đã gửi",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.3649840119553627,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "call_started_count",
+                  "type": "timeseries",
+                  "label": "Cuộc gọi",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.3106890199872123,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "mqtt_connected",
+                  "type": "timeseries",
+                  "label": "ThingsBoard",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.889902823237931,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "gps_state",
+                  "type": "timeseries",
+                  "label": "GPS",
+                  "color": "#1565c0",
+                  "settings": {},
+                  "_hash": 0.40049276262127387,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "hideInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 0,
+              "timewindowMs": 86400000,
+              "quickInterval": "CURRENT_DAY",
+              "interval": 5000
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 5000,
+              "timewindowMs": 86400000,
+              "fixedTimewindow": {
+                "startTimeMs": 0,
+                "endTimeMs": 0
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 1000
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "8px",
+          "settings": {
+            "showTimestamp": true,
+            "displayPagination": true,
+            "defaultPageSize": 8,
+            "enableSearch": true,
+            "enableStickyHeader": true,
+            "enableStickyAction": false
+          },
+          "title": "LỊCH SỬ TELEMETRY 24 GIỜ",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 600,
+            "padding": "5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "widgetStyle": {},
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0,0,0,0.87)",
+          "iconSize": "24px",
+          "displayTimewindow": true,
+          "titleTooltip": ""
+        },
+        "row": 54,
+        "col": 0,
+        "id": "13c61166-7e5d-44c2-9c5d-1d00a0010006",
+        "typeFullFqn": "system.cards.timeseries_table"
+      },
+      "13c61166-7e5d-44c2-9c5d-1d00a0010007": {
+        "type": "rpc",
+        "sizeX": 24,
+        "sizeY": 10,
+        "config": {
+          "datasources": [],
+          "targetDeviceAliasIds": [
+            "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001"
+          ],
+          "timewindow": null,
+          "showTitle": false,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "0px",
+          "settings": {
+            "requestTimeout": 15000
+          },
+          "title": "🎛️ ĐIỀU KHIỂN TRIPGUARD",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "widgetStyle": {},
+          "actions": {}
+        },
+        "row": 30,
+        "col": 0,
+        "typeFullFqn": "tenant.tripguard.control_panel"
+      },
+      "13c61166-7e5d-44c2-9c5d-1d00a0010008": {
+        "type": "latest",
+        "sizeX": 24,
+        "sizeY": 14,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "latitude",
+                  "type": "timeseries",
+                  "label": "Vĩ độ",
+                  "color": "#0f766e",
+                  "settings": {},
+                  "_hash": 0.81001,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "longitude",
+                  "type": "timeseries",
+                  "label": "Kinh độ",
+                  "color": "#0284c7",
+                  "settings": {},
+                  "_hash": 0.81002,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "speed_kmh",
+                  "type": "timeseries",
+                  "label": "Tốc độ",
+                  "color": "#7c3aed",
+                  "settings": {},
+                  "_hash": 0.81003,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "satellites",
+                  "type": "timeseries",
+                  "label": "Vệ tinh",
+                  "color": "#ca8a04",
+                  "settings": {},
+                  "_hash": 0.81004,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "gps_state",
+                  "type": "timeseries",
+                  "label": "Trạng thái GPS",
+                  "color": "#475569",
+                  "settings": {},
+                  "_hash": 0.81005,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "position_current",
+                  "type": "timeseries",
+                  "label": "Tọa độ mới",
+                  "color": "#059669",
+                  "settings": {},
+                  "_hash": 0.81006,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                }
+              ]
+            }
+          ],
+          "timewindow": null,
+          "showTitle": false,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "0px",
+          "settings": {
+            "mapRefreshMs": 5000,
+            "mapSpanDegrees": 0.01
+          },
+          "title": "🗺️ BẢN ĐỒ GPS TRỰC TIẾP",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "widgetStyle": {},
+          "actions": {}
+        },
+        "row": 40,
+        "col": 0,
+        "typeFullFqn": "tenant.tripguard.gps_live_map"
+      }
+    },
+    "states": {
+      "default": {
+        "name": "TripGuard Monitor",
+        "root": true,
+        "layouts": {
+          "main": {
+            "widgets": {
+              "13c61166-7e5d-44c2-9c5d-1d00a0010001": {
+                "sizeX": 12,
+                "sizeY": 6,
+                "row": 0,
+                "col": 0
+              },
+              "13c61166-7e5d-44c2-9c5d-1d00a0010002": {
+                "sizeX": 12,
+                "sizeY": 6,
+                "row": 0,
+                "col": 12
+              },
+              "13c61166-7e5d-44c2-9c5d-1d00a0010003": {
+                "sizeX": 12,
+                "sizeY": 8,
+                "row": 6,
+                "col": 0
+              },
+              "13c61166-7e5d-44c2-9c5d-1d00a0010004": {
+                "sizeX": 12,
+                "sizeY": 8,
+                "row": 6,
+                "col": 12
+              },
+              "13c61166-7e5d-44c2-9c5d-1d00a0010005": {
+                "sizeX": 24,
+                "sizeY": 7,
+                "row": 26,
+                "col": 0
+              },
+              "13c61166-7e5d-44c2-9c5d-1d00a0010006": {
+                "sizeX": 24,
+                "sizeY": 10,
+                "row": 33,
+                "col": 0
+              },
+              "13c61166-7e5d-44c2-9c5d-1d00a0010007": {
+                "sizeX": 8,
+                "sizeY": 12,
+                "row": 14,
+                "col": 16
+              },
+              "13c61166-7e5d-44c2-9c5d-1d00a0010008": {
+                "sizeX": 16,
+                "sizeY": 12,
+                "row": 14,
+                "col": 0
+              }
+            },
+            "gridSettings": {
+              "backgroundColor": "#f4f7fb",
+              "color": "rgba(0,0,0,0.87)",
+              "columns": 24,
+              "margin": 8,
+              "backgroundSizeMode": "100%",
+              "autoFillHeight": false,
+              "backgroundImageUrl": null,
+              "mobileAutoFillHeight": false,
+              "mobileRowHeight": 70,
+              "outerMargin": true
+            }
+          }
+        }
+      }
+    },
+    "entityAliases": {
+      "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001": {
+        "id": "7f9e4eab-76e2-4c1c-9b28-3117d5d1c001",
+        "alias": "tripguard-01",
+        "filter": {
+          "type": "entityName",
+          "resolveMultiple": false,
+          "entityType": "DEVICE",
+          "entityNameFilter": "tripguard-01"
+        }
+      }
+    },
+    "filters": {},
+    "timewindow": {
+      "displayValue": "",
+      "hideInterval": false,
+      "hideAggregation": false,
+      "hideAggInterval": false,
+      "hideTimezone": false,
+      "selectedTab": 0,
+      "realtime": {
+        "realtimeType": 0,
+        "interval": 5000,
+        "timewindowMs": 86400000,
+        "quickInterval": "CURRENT_DAY"
+      },
+      "history": {
+        "historyType": 0,
+        "interval": 5000,
+        "timewindowMs": 86400000,
+        "fixedTimewindow": {
+          "startTimeMs": 0,
+          "endTimeMs": 0
+        },
+        "quickInterval": "CURRENT_DAY"
+      },
+      "aggregation": {
+        "type": "NONE",
+        "limit": 1000
+      }
+    },
+    "settings": {
+      "stateControllerId": "entity",
+      "showTitle": false,
+      "showDashboardsSelect": false,
+      "showEntitiesSelect": false,
+      "showDashboardTimewindow": false,
+      "showDashboardExport": false,
+      "toolbarAlwaysOpen": false,
+      "titleColor": "rgba(0,0,0,0.87)",
+      "showFilters": false,
+      "showDashboardLogo": false,
+      "dashboardLogoUrl": null,
+      "showUpdateDashboardImage": false
+    }
+  },
+  "name": "TripGuard - Giám sát toàn bộ",
+  "resources": []
+}
