@@ -52,7 +52,7 @@ chan 5 V yeu cua ST-LINK.
 
 ## Cau hinh da dat
 
-- So dien thoai canh bao: `+84838740019`.
+- So dien thoai canh bao: `+84xxxxxxxxx`.
 - Radar: phat loa + gui SMS, khong goi.
 - Nut SOS: phat loa + gui SMS `CUU TUI` + goi dien.
 - APN, ThingsBoard host/port va token nam trong `Core/Inc/tripguard_config.h`.

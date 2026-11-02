@@ -20,7 +20,7 @@ Khong doi pin trong CubeMX. Cau hinh da san:
 - Loa JQ8900: PB0; BUSY PB12.
 - Nut SOS: PB1 keo xuong GND; nut ACK: PB10 keo xuong GND.
 - Servo: PA6, TIM3_CH1, PWM 50 Hz.
-- So SMS/goi: +84838740019.
+- So SMS/goi: +84xxxxxxxxx.
 
 Luu y: PA11/PA12 dang dung cho PiLink, vi vay khong bat USB_OTG_FS. Khi
 generate lai, giu cac khoi `USER CODE` va xac nhan `pi_link.c` van nam trong

@@ -8,7 +8,7 @@
 3. Loai bo `.metadata`, cac thu muc backup, file build Debug cu va launch cu.
 4. Giu nguyen toan bo chan phan cung cua project goc.
 5. Sua TIM3 CH1 tren PA6 thanh PWM 50 Hz thuc su, pulse khoi tao 1500 us.
-6. Doi so canh bao thanh `+84838740019`, gui SMS GSM/ASCII de tang tinh tuong thich.
+6. Doi so canh bao thanh `+84xxxxxxxxx`, gui SMS GSM/ASCII de tang tinh tuong thich.
 7. Tach noi dung SMS:
    - Radar: `PHAT HIEN CO NGUOI`, chi SMS.
    - SOS: `CUU TUI`, SMS roi goi dien.

@@ -24,7 +24,7 @@
  */
 #define TRIPGUARD_TB_HOST               "mbvyt-58-187-48-135.run.pinggy-free.link"
 #define TRIPGUARD_TB_PORT               36225U
-#define TRIPGUARD_TB_ACCESS_TOKEN       "Trankhoinguyen0110"
+#define TRIPGUARD_TB_ACCESS_TOKEN       "REPLACE_WITH_DEVICE_ACCESS_TOKEN"
 #define TRIPGUARD_TB_CLIENT_ID          "tripguard-stm32f411"
 #define TRIPGUARD_TB_TELEMETRY_TOPIC    "v1/devices/me/telemetry"
 #define TRIPGUARD_TB_KEEPALIVE_SECONDS  60U
@@ -63,7 +63,7 @@
  * SMS text mode GSM da duoc xac nhan chay on dinh trong project test rieng.
  * Noi dung de ASCII khong dau de tranh phu thuoc UCS2/DCS cua nha mang.
  */
-#define TRIPGUARD_EMERGENCY_NUMBER             "0838740019"
+#define TRIPGUARD_EMERGENCY_NUMBER             "+84xxxxxxxxx"
 
 /* Radar chi gui SMS; nut SOS gui SMS rieng va sau do goi dien. */
 #define TRIPGUARD_RADAR_SMS_TEXT                "PHAT HIEN CO NGUOI"

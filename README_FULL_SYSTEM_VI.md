@@ -93,8 +93,8 @@ Tat ca nam trong `Core/Inc/tripguard_config.h`:
 #define TRIPGUARD_CELLULAR_APN       "v-internet"
 #define TRIPGUARD_TB_HOST            "vsxvv-58-187-48-135.run.pinggy-free.link"
 #define TRIPGUARD_TB_PORT            45483U
-#define TRIPGUARD_TB_ACCESS_TOKEN    "Trankhoinguyen0110"
-#define TRIPGUARD_EMERGENCY_NUMBER   "+84838740019"
+#define TRIPGUARD_TB_ACCESS_TOKEN    "REPLACE_WITH_DEVICE_ACCESS_TOKEN"
+#define TRIPGUARD_EMERGENCY_NUMBER   "+84xxxxxxxxx"
 ```
 
 Endpoint Pinggy free se doi khi tao tunnel moi. Moi lan PowerShell in host/port

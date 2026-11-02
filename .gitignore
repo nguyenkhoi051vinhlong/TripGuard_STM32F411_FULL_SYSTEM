@@ -55,3 +55,9 @@ secrets.h
 **/secrets.h
 .env
 *.env
+# ESP-IDF generated local settings and copied build artifacts
+sdkconfig
+sdkconfig.old
+managed_components/
+**/firmware/flasher_args.json
+**/firmware/sdkconfig.build

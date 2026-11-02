@@ -42,7 +42,7 @@ tcp://ten-moi.run.pinggy-free.link:so-port-moi
 ```c
 #define TRIPGUARD_TB_HOST          "ten-moi.run.pinggy-free.link"
 #define TRIPGUARD_TB_PORT          12345U
-#define TRIPGUARD_TB_ACCESS_TOKEN  "Trankhoinguyen0110"
+#define TRIPGUARD_TB_ACCESS_TOKEN  "REPLACE_WITH_DEVICE_ACCESS_TOKEN"
 ```
 
 Không ghi `tcp://` vào `TRIPGUARD_TB_HOST`. Port bên ngoài của Pinggy thường

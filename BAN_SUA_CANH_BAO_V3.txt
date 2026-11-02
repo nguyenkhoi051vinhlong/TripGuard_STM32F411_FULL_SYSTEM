@@ -6,7 +6,7 @@ Da sua cac loi khi test thuc te:
 1. Radar co nguoi ngay sau luc khoi dong van duoc gui canh bao sau warm-up.
 2. Neu mat ket noi radar, khong dung trang thai phat hien cu de quay servo.
 3. Nut SOS PB1 va nut ACK PB10 co ca EXTI va polling du phong.
-4. SMS dung GSM 7-bit, noi dung khong dau va so quoc te +84838740019.
+4. SMS dung GSM 7-bit, noi dung khong dau va so quoc te +84xxxxxxxxx.
 5. Cuoc goi chi duoc tinh thanh cong sau "VOICE CALL: BEGIN".
 6. Dung AT+CHUP de ket thuc cuoc goi, khong phu thuoc AT+CVHU.
 
